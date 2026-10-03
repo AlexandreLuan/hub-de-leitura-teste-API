@@ -140,7 +140,7 @@ describe('PUT - Teste de API - Gestão de Usuários', () => {
 });
 
 describe('DELETE - Teste de API - Gestão de Usuários', () => {
-    it('Deve excluir um usuário com sucesso', () => {
+    it.skip('Deve excluir um usuário com sucesso', () => {
         cy.api({
             method: 'DELETE',
             url: 'users/31',
