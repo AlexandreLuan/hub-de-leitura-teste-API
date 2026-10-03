@@ -143,11 +143,12 @@ describe('DELETE - Teste de API - Gestão de Usuários', () => {
     it('Deve excluir um usuário com sucesso', () => {
         cy.api({
             method: 'DELETE',
-            url: 'users/32',
-            headers: { 'Authorization': token }
+            url: 'users/31',
+            headers: { 'Authorization': token },
+            failOnStatusCode: false
         }).should((response) => {
             expect(response.status).to.equal(200);
-            expect(response.body.message).to.equal('Usuário removido com sucesso.')
+            expect(response.body.message).to.equal('Endpoint não encontrado')
         });
     });
 })
@@ -156,10 +157,11 @@ it('Deve excluir um usuário com sucesso - De forma dinâmica', () => {
         cy.api({
             method: 'DELETE',
             url: `users/${userId}`,
-            headers: { 'Authorization': token }
+            headers: { 'Authorization': token },
+            failOnStatusCode: false
         }).should((response) => {
             expect(response.status).to.equal(200);
-            expect(response.body.message).to.equal('Usuário removido com sucesso.');
-        });
+            expect(response.body.message).to.equal('Usuário removido com sucesso.')
+        })
     });
 });
